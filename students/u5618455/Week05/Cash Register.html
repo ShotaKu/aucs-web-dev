@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)file:///C:/Users/Shota/Downloads/Cash%20Register.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+    <title>Cash Register</title>
+    <script>
+  function calculateChange() 
+  {
+     var purchase = parseInt(document.getElementById('purchase').value);
+     var cash = parseInt(document.getElementById('cash').value);
+  	 if(alartInt(purchase))
+  	 {
+  		if(alartInt(cash))
+  		{
+  			if(cash>purchase)
+  			{
+  				var change = document.getElementById('change');
+     			console.log(purchase);
+  	 			var result = cash - purchase;
+	 			change.value = result;
+  			}
+  			else{alert("cash are less than purchase");}
+  			
+  		}
+		else{clearText();}
+  	 }
+  	 else{clearText();}
+  		
+     
+  }
+  function clearText()/*clea()は既にJavaScriptの中にあるから使えない*/
+  {
+	document.getElementById('purchase').value="";
+	document.getElementById('cash').value="";
+	document.getElementById('change').value="";
+	console.log(purchase);
+  }
+  function isNumeric(inputInt){return inputInt.match(/[^0-9]+/)}
+  function alartInt(input)
+  {
+  	if(!isNumeric(input))
+  	{
+  		return true;
+  	}
+  	alert("please enter number(no characters)");
+  	return false;
+  }
+</script>
+</head>
+<body>
+    <table>
+        <tbody><tr>
+            <td>Purchase</td>
+            <td><input type="text" id="purchase"></td>
+        </tr>
+        <tr>
+            <td>Cash</td>
+            <td><input type="text" id="cash"></td>
+        </tr>
+        <tr>
+            <td>Change</td>
+            <td><input type="text" id="change"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="calculateChange()">Calculate</button>
+                <button onclick="clearText()">Clear</button>
+            </td>            
+        </tr>
+
+    </tbody></table>
+
+</body></html>
